@@ -8,7 +8,7 @@
   (setf *table* (make-hash-table)))
 
 (defun run-find ()
-  (let ((freqs (read-input "../input/day1.txt")))
+  (let ((freqs (read-input "~/quicklisp/local-projects/advent-of-code-2018/input/day1.txt")))
      (sethash 0 *table* 0)
      (find-dup-freq freqs 0)))
 
