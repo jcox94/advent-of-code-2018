@@ -2,7 +2,7 @@
 
 (defpackage #:day1
   (:use #:cl)
-  (:export :run-find))
+  (:export :main))
 
 (defpackage #:day2
   (:use #:cl))
