@@ -32,5 +32,15 @@
 (defun part-one ()
   (checksum (read-input "../input/day2.txt")))
 
+(defun comp-lines (line1 line2)
+  (let ((mismatch nil))
+    (loop for c1 across line1
+       for c2 across line2 do
+	 (if (not (eql c1 c2))
+	     (if mismatch
+		 (return-from comp-lines nil)
+		 (setf mismatch t))))
+    t))
+
 (defun add-to-table (char)
   ())
