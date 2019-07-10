@@ -1,0 +1,2 @@
+(defvar *2-digit* 0)
+(defvar *3-digit* 0)
