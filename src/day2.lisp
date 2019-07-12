@@ -42,5 +42,30 @@
 		 (setf mismatch t))))
     t))
 
+(defun find-match (list)
+  (let ((first-elem (first list))
+	(IDs (rest list)))
+    (loop for elem in IDs do
+	 (if (comp-lines first-elem elem)
+	     (return-from find-match (list first-elem elem))
+	     )))
+  (find-match (rest list)))
+
+(defun construct-string (s1 s2)
+  (let ((result ""))
+    (loop for i across s1
+       for j across s2 do
+	 (if (eql i j)
+	     (setf result (concatenate 'string result (string i)))))
+    result))
+
+(defun get-answer (file-path)
+  (let ((result (find-match (read-input file-path))))
+    (destructuring-bind (s1 s2) result
+      (construct-string s1 s2))))
+
+(defun part-two ()
+  (get-answer "../input/day2.txt"))
+
 (defun add-to-table (char)
   ())
